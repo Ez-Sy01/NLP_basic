@@ -1,4 +1,4 @@
-[!TIP]
+[**!TIP**]
 
 
 # 📝 Text Classification Overview
