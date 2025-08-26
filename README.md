@@ -1,5 +1,4 @@
-[**TIP**]
-
+:clipboard:
 
 # 📝 Text Classification Overview
 
