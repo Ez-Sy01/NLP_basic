@@ -63,7 +63,7 @@
 
 ---
 ### 1.5 최신 응용 - **Prompt 기반 분류 (LLM 활용)** - ChatGPT, GPT-4 같은 대형 언어모델 사용 - Zero-shot classification 가능
-python
+```python
 from transformers import pipeline
 
 classifier = pipeline("zero-shot-classification")
@@ -71,7 +71,7 @@ classifier(
     "I love this movie!",
     candidate_labels=["positive", "negative"]
 )
-
+```
 ---
 # 🔧 Text Preprocessing for NLP
 
