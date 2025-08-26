@@ -1,3 +1,6 @@
+:::? "Tip"
+
+
 # 📝 Text Classification Overview
 
 텍스트 분류(Text Classification)는 문서나 문장을 특정 카테고리로 자동 분류하는 기술입니다.  
