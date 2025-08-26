@@ -210,32 +210,32 @@ print(tokens)  # ['love', 'natural', 'language', 'processing']
 
  - 목표:
 
-   -- 모델의 투명성 (Transparency)
+   - 모델의 투명성 (Transparency)
 
-   -- 모델의 해석 가능성 (Interpretability)
+   - 모델의 해석 가능성 (Interpretability)
 
-   -- 사용자 신뢰 확보 (Trust)
+   - 사용자 신뢰 확보 (Trust)
 
 ## 3. XAI 접근 방식
 ### (1) 모델 중심 (Model-based)
 
-설명 가능한 모델 자체 사용
+ - 설명 가능한 모델 자체 사용
 
-의사결정나무(Decision Tree), 선형회귀, 규칙 기반 모델 등
+ - 의사결정나무(Decision Tree), 선형회귀, 규칙 기반 모델 등
 
-장점: 구조 자체가 직관적
+ - 장점: 구조 자체가 직관적
 
-단점: 복잡한 데이터에서는 성능 한계
+ - 단점: 복잡한 데이터에서는 성능 한계
 
 ### (2) 사후 설명 (Post-hoc)
 
-블랙박스 모델을 유지하면서, 결과를 해석
+ - 블랙박스 모델을 유지하면서, 결과를 해석
 
-LIME (Local Interpretable Model-agnostic Explanations): 특정 샘플 예측 근처를 선형 모델로 근사
+ - LIME (Local Interpretable Model-agnostic Explanations): 특정 샘플 예측 근처를 선형 모델로 근사
 
-SHAP (SHapley Additive exPlanations): 게임 이론 기반, 각 피처의 기여도 계산
+ - SHAP (SHapley Additive exPlanations): 게임 이론 기반, 각 피처의 기여도 계산
 
-Grad-CAM: CNN의 시각적 설명 (이미지에서 어떤 영역이 중요한지 Heatmap으로 표시)
+ - Grad-CAM: CNN의 시각적 설명 (이미지에서 어떤 영역이 중요한지 Heatmap으로 표시)
 
 ## 4. XAI의 실제 활용 사례
 - 의료: X-ray/CT에서 어떤 부위 때문에 질병이라고 진단했는지 시각적으로 표시
