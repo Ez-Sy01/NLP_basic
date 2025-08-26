@@ -80,6 +80,7 @@ result = classifier(
 
 print(result)
 ```
+
 ---
 # 🔧 Text Preprocessing for NLP
 
@@ -96,7 +97,7 @@ def clean_text_en(text):
     return text
 
 print("EN Cleaning:", clean_text_en(text_en))
-
+```
 # 한국어
 def clean_text_kr(text):
     text = re.sub(r"[^가-힣\s]", "", text)  # 한글과 공백만 남기기
