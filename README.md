@@ -157,8 +157,27 @@ tokens = tokenizer(text)
 print(tokens)
 # {'input_ids': [...], 'token_type_ids': [...], 'attention_mask': [...]}
 
+7. 전처리 예시 코드 (Python)
+import re
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+# 기본 정제
+text = "I love Natural Language Processing! :) 2025"
+text = re.sub(r"[^a-zA-Z\s]", "", text.lower())
+print(text)  # i love natural language processing
+
+# 토큰화
+tokens = word_tokenize(text)
+print(tokens)  # ['i', 'love', 'natural', 'language', 'processing']
+
+# 불용어 제거
+stop_words = set(stopwords.words("english"))
+tokens = [w for w in tokens if w not in stop_words]
+print(tokens)  # ['love', 'natural', 'language', 'processing']
 
 ✅ 정리
+
 텍스트 전처리는 다음 단계로 구성됩니다:
 
 기본 정제 → 특수문자, 숫자 처리, 대소문자 변환
@@ -172,5 +191,3 @@ print(tokens)
 인코딩 → BoW, TF-IDF, Word2Vec, BERT 토큰화
 
 AutoTokenizer → Hugging Face 모델용 자동 토큰화, 패딩, 텐서 변환 지원
-
-올바른 전처리를 거쳐야 모델이 데이터에서 의미 있는 패턴을 더 잘 학습할 수 있습니다.
