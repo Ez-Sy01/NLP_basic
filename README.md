@@ -90,7 +90,7 @@ print(result)
 
 ---
 
-'''python
+```python
 # 영어
 def clean_text_en(text):
     text = text.lower()  # 소문자 변환
