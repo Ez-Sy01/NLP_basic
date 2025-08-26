@@ -76,10 +76,10 @@ classifier = pipeline("zero-shot-classification")
 classifier(
     "I love this movie!",
     candidate_labels=["positive", "negative"]
-)
+)```
 
 
-\\
+
 ---
 # 🔧 Text Preprocessing for NLP
 
