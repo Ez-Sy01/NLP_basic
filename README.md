@@ -62,13 +62,8 @@
   - 학습 방식을 개선해 성능 향상
 
 ---
-
-### 1.5 최신 응용
-
-- **Prompt 기반 분류 (LLM 활용)**  
-  - ChatGPT, GPT-4 같은 대형 언어모델 사용  
-  - Zero-shot classification 가능  
-```python
+### 1.5 최신 응용 - **Prompt 기반 분류 (LLM 활용)** - ChatGPT, GPT-4 같은 대형 언어모델 사용 - Zero-shot classification 가능
+python
 from transformers import pipeline
 
 classifier = pipeline("zero-shot-classification")
@@ -76,7 +71,6 @@ classifier(
     "I love this movie!",
     candidate_labels=["positive", "negative"]
 )
-```
 🔧 Text Preprocessing for NLP
 텍스트 분류(Text Classification) 모델을 학습하기 전에 반드시 거쳐야 하는 과정이 **텍스트 전처리(Text Preprocessing)**입니다.
 언어 데이터의 특성상 불필요한 기호, 중복 표현, 대소문자 문제 등이 존재하기 때문에, 모델 성능을 높이기 위해 데이터를 정제하는 것이 매우 중요합니다.
@@ -127,39 +121,7 @@ Subword 기반 임베딩 (BERT 등): Transformer 계열 사용
 6. Hugging Face AutoTokenizer
 AutoTokenizer는 Hugging Face Transformers에서 제공하는 자동 토크나이저입니다.
 모델 이름만 지정하면 해당 모델에 맞는 토크나이저를 자동으로 불러와, 토큰화, 패딩, 인덱스 변환까지 지원합니다.
-
-```python
-from transformers import AutoTokenizer
-
-# BERT 모델용 토크나이저 자동 로드
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-
-text = "I love Natural Language Processing!"
-tokens = tokenizer(text)
-print(tokens)
-# {'input_ids': [...], 'token_type_ids': [...], 'attention_mask': [...]}
-
-7. 전처리 예시 코드 (Python)
-python
-복사
-편집
-import re
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-
-# 기본 정제
-text = "I love Natural Language Processing! :) 2025"
-text = re.sub(r"[^a-zA-Z\s]", "", text.lower())
-print(text)  # i love natural language processing
-
-# 토큰화
-tokens = word_tokenize(text)
-print(tokens)  # ['i', 'love', 'natural', 'language', 'processing']
-
-# 불용어 제거
-stop_words = set(stopwords.words("english"))
-tokens = [w for w in tokens if w not in stop_words]
-print(tokens)  # ['love', 'natural', 'language', 'processing']
+python from transformers import AutoTokenizer # BERT 모델용 토크나이저 자동 로드 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased") text = "I love Natural Language Processing!" tokens = tokenizer(text) print(tokens) # {'input_ids': [...], 'token_type_ids': [...], 'attention_mask': [...]} 7. 전처리 예시 코드 (Python) python 복사 편집 import re from nltk.corpus import stopwords from nltk.tokenize import word_tokenize # 기본 정제 text = "I love Natural Language Processing! :) 2025" text = re.sub(r"[^a-zA-Z\s]", "", text.lower()) print(text) # i love natural language processing # 토큰화 tokens = word_tokenize(text) print(tokens) # ['i', 'love', 'natural', 'language', 'processing'] # 불용어 제거 stop_words = set(stopwords.words("english")) tokens = [w for w in tokens if w not in stop_words] print(tokens) # ['love', 'natural', 'language', 'processing'] ✅ 정리 텍스트 전처리는 다음 단계로 구성됩니다: 기본 정제 → 특수문자, 숫자 처리, 대소문자 변환 토큰화 → 단어/형태소/서브워드 단위 분할 불용어 제거 → 의미 없는 단어 제거 정규화 → 어간 추출, 표제어 추출 인코딩 → BoW, TF-IDF, Word2Vec, BERT 토큰화 AutoTokenizer → Hugging Face 모델용 자동 토큰화, 패딩, 텐서 변환 지원
 ✅ 정리
 텍스트 전처리는 다음 단계로 구성됩니다:
 
