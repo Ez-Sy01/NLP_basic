@@ -88,6 +88,23 @@ print(result)
 
 ---
 
+'''python
+# 영어
+def clean_text_en(text):
+    text = text.lower()  # 소문자 변환
+    text = re.sub(r"[^a-z\s]", "", text)  # 알파벳과 공백만 남기기
+    return text
+
+print("EN Cleaning:", clean_text_en(text_en))
+
+# 한국어
+def clean_text_kr(text):
+    text = re.sub(r"[^가-힣\s]", "", text)  # 한글과 공백만 남기기
+    return text
+
+print("KR Cleaning:", clean_text_kr(text_kr))
+```
+
 ## 1. 기본 정제 (Cleaning)
 
 - 불필요한 기호, 특수문자 제거  
@@ -96,6 +113,23 @@ print(result)
   - 그대로 둘지 / 토큰 `<NUM>`으로 대체할지 결정
 - 대소문자 통일  
   - 영어의 경우 대부분 소문자 변환 (`Apple` → `apple`)
+
+```python
+# 영어
+def clean_text_en(text):
+    text = text.lower()  # 소문자 변환
+    text = re.sub(r"[^a-z\s]", "", text)  # 알파벳과 공백만 남기기
+    return text
+
+print("EN Cleaning:", clean_text_en(text_en))
+
+# 한국어
+def clean_text_kr(text):
+    text = re.sub(r"[^가-힣\s]", "", text)  # 한글과 공백만 남기기
+    return text
+
+print("KR Cleaning:", clean_text_kr(text_kr))
+```
 
 ---
 
@@ -112,6 +146,17 @@ print(result)
   - 신조어, 희귀 단어 처리에 강함
   - BERT 계열 모델에서 활용됨
 
+```python
+# 영어: 단어 단위 토큰화
+tokens_en = nltk.word_tokenize(clean_text_en(text_en))
+print("EN Tokenization:", tokens_en)
+
+# 한국어: 형태소 단위 토큰화
+okt = Okt()
+tokens_kr = okt.morphs(clean_text_kr(text_kr))
+print("KR Tokenization:", tokens_kr)
+```
+
 ---
 
 ## 3. 불용어 제거 (Stopword Removal)
@@ -120,6 +165,18 @@ print(result)
 
 - 한국어: `은`, `는`, `이`, `가`, `그리고`, `하지만`  
 - 영어: `is`, `the`, `and`, `but`  
+
+```python
+# 영어
+stop_words_en = set(stopwords.words("english"))
+filtered_en = [w for w in tokens_en if w not in stop_words_en]
+print("EN Stopword Removal:", filtered_en)
+
+# 한국어 (간단 예시)
+stop_words_kr = ["은", "는", "이", "가", "그리고", "을", "를"]
+filtered_kr = [w for w in tokens_kr if w not in stop_words_kr]
+print("KR Stopword Removal:", filtered_kr)
+```
 
 ---
 
@@ -131,6 +188,22 @@ print(result)
 - **표제어 추출 (Lemmatization)**  
   - 품사를 고려한 원형 변환 (`better` → `good`)  
 - 한국어의 경우: 활용형 → 기본형 변환 (`갔다` → `가다`)  
+
+```python
+# 영어 - 어간 추출 (Stemming)
+stemmer = PorterStemmer()
+stemmed_en = [stemmer.stem(w) for w in filtered_en]
+print("EN Stemming:", stemmed_en)
+
+# 영어 - 표제어 추출 (Lemmatization)
+lemmatizer = WordNetLemmatizer()
+lemmatized_en = [lemmatizer.lemmatize(w) for w in filtered_en]
+print("EN Lemmatization:", lemmatized_en)
+
+# 한국어는 Okt의 'normalize' 또는 'stem' 옵션 사용 가능
+tokens_kr_norm = okt.morphs(clean_text_kr(text_kr), stem=True)  # 활용형 → 기본형
+print("KR Normalization:", tokens_kr_norm)
+```
 
 ---
 
