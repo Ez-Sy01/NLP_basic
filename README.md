@@ -63,6 +63,7 @@
 
 ---
 ### 1.5 최신 응용 - **Prompt 기반 분류 (LLM 활용)** - ChatGPT, GPT-4 같은 대형 언어모델 사용 - Zero-shot classification 가능
+
 ```python
 from transformers import pipeline
 
@@ -97,7 +98,7 @@ def clean_text_en(text):
     return text
 
 print("EN Cleaning:", clean_text_en(text_en))
-```
+
 # 한국어
 def clean_text_kr(text):
     text = re.sub(r"[^가-힣\s]", "", text)  # 한글과 공백만 남기기
