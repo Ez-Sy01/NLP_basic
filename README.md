@@ -100,6 +100,7 @@ from konlpy.tag import Okt  # 한국어 형태소 분석기
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
+nltk.download('punkt_tab')
 
 # 예제 문장
 text_en = "Apple is looking at buying U.K. startup for $1 billion! Running better?"
