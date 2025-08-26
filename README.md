@@ -1,4 +1,4 @@
-:::? "Tip"
+[!TIP]
 
 
 # 📝 Text Classification Overview
