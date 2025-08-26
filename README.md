@@ -66,11 +66,19 @@
 ```python
 from transformers import pipeline
 
-classifier = pipeline("zero-shot-classification")
-classifier(
+# 명시적으로 모델과 revision 지정
+classifier = pipeline(
+    "zero-shot-classification",
+    model="facebook/bart-large-mnli",
+    revision="d7645e1"
+)
+
+result = classifier(
     "I love this movie!",
     candidate_labels=["positive", "negative"]
 )
+
+print(result)
 ```
 ---
 # 🔧 Text Preprocessing for NLP
