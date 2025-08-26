@@ -91,20 +91,20 @@ print(result)
 ---
 
 ```python
-# 영어
-def clean_text_en(text):
-    text = text.lower()  # 소문자 변환
-    text = re.sub(r"[^a-z\s]", "", text)  # 알파벳과 공백만 남기기
-    return text
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+from konlpy.tag import Okt  # 한국어 형태소 분석기
 
-print("EN Cleaning:", clean_text_en(text_en))
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 
-# 한국어
-def clean_text_kr(text):
-    text = re.sub(r"[^가-힣\s]", "", text)  # 한글과 공백만 남기기
-    return text
+# 예제 문장
+text_en = "Apple is looking at buying U.K. startup for $1 billion! Running better?"
+text_kr = "나는 학교에 갔다. 그리고 친구들을 만났다."
 
-print("KR Cleaning:", clean_text_kr(text_kr))
 ```
 
 ## 1. 기본 정제 (Cleaning)
