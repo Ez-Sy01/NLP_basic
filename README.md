@@ -156,8 +156,9 @@ text = "I love Natural Language Processing!"
 tokens = tokenizer(text)
 print(tokens)
 # {'input_ids': [...], 'token_type_ids': [...], 'attention_mask': [...]}
-
+```
 7. 전처리 예시 코드 (Python)
+```python
 import re
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -175,7 +176,7 @@ print(tokens)  # ['i', 'love', 'natural', 'language', 'processing']
 stop_words = set(stopwords.words("english"))
 tokens = [w for w in tokens if w not in stop_words]
 print(tokens)  # ['love', 'natural', 'language', 'processing']
-
+```
 ✅ 정리
 
 텍스트 전처리는 다음 단계로 구성됩니다:
